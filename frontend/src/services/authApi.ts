@@ -1,7 +1,4 @@
-// Base URL for the backend API
-const API_BASE = "http://localhost:5000/api";
-
-// ---- Types for auth ----
+const API_BASE = "https://editor-backend-4mmd.onrender.com/api";
 
 export interface AuthResponse {
     message: string;
@@ -9,9 +6,6 @@ export interface AuthResponse {
     token: string;
 }
 
-// ============================================================
-// registerUser — creates a new account
-// ============================================================
 export async function registerUser(
     name: string,
     email: string,
@@ -22,18 +16,13 @@ export async function registerUser(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
     });
-
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Registration failed");
     }
-
     return response.json();
 }
 
-// ============================================================
-// loginUser — logs in with email + password
-// ============================================================
 export async function loginUser(
     email: string,
     password: string
@@ -43,11 +32,9 @@ export async function loginUser(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
     });
-
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Login failed");
     }
-
     return response.json();
 }
