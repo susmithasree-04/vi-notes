@@ -1,4 +1,4 @@
-const API_BASE = "/api";
+const API_BASE = "https://editor-backend-4mmd.onrender.com/api";
 
 export interface KeystrokeEvent {
     interval: number;
